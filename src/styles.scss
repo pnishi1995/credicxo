@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
+$blue: #3e3c89;
+$white: #ffffff;
+$grey: #797979;
+$lightgreywhite: #f8f9fa;
+$gray_border: #eaeaea;
+$shadow: #dedede;
+
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -42,5 +49,28 @@ $padding-left-right: ();
   .pad-tb-#{$padding} {
     padding-top: #{$padding} + "px";
     padding-bottom: #{$padding} + "px";
+  }
+}
+
+.btn__grey:disabled,
+.btn__grey:active,
+.btn__grey {
+  background: $grey;
+  color: $white;
+  &:hover {
+    background: $grey;
+    color: $white;
+  }
+}
+
+.btn__blue,
+.btn__blue:disabled,
+.btn__blue:active {
+  background: $blue !important;
+  color: $white !important;
+  &:hover {
+    background: $blue !important;
+    color: $white !important;
+    opacity: 0.75;
   }
 }

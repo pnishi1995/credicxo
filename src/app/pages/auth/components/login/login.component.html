@@ -1,0 +1,17 @@
+<div class="login">
+  <form #loginForm="ngForm" novalidate (submit)="makeUserLogin(loginForm?.value)">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email" name="email" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name="password" ngModel required>
+    </div>
+    <button [disabled]="!loginForm.valid" type="submit" class="form-control btn btn-default btn__blue">Login</button>
+    <div class="form-group">
+      <a class="pad-tb-10 inline-block" [routerLink]="['/auth/sign-up']">Click here to sign
+        up</a>
+    </div>
+  </form>
+</div>
