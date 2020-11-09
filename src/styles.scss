@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+$font-size: ();
+@each $font in $font-size {
+  .f-size-#{$font} {
+    font-size: #{$font} + "px";
+  }
+}
+
+$margin-top-bottom: ();
+$margin-left-right: ();
+
+@each $margin in $margin-left-right {
+  .mar-lr-#{$margin} {
+    margin-left: #{$margin} + "px";
+    margin-right: #{$margin} + "px";
+  }
+}
+
+@each $margin in $margin-top-bottom {
+  .mar-tb-#{$margin} {
+    margin-top: #{$margin} + "px";
+    margin-bottom: #{$margin} + "px";
+  }
+}
+
+$padding-top-bottom: ();
+$padding-left-right: ();
+
+@each $padding in $padding-left-right {
+  .pad-lr-#{$padding} {
+    padding-left: #{$padding} + "px";
+    padding-right: #{$padding} + "px";
+  }
+}
+
+@each $padding in $padding-top-bottom {
+  .pad-tb-#{$padding} {
+    padding-top: #{$padding} + "px";
+    padding-bottom: #{$padding} + "px";
+  }
+}
