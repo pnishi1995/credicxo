@@ -2,11 +2,17 @@
   <form #signUpForm="ngForm" novalidate (submit)="makeUserSignUp(signUpForm?.value)">
     <div class="form-group">
       <label for="fname">First Name:</label>
-      <input type="text" class="form-control" id="fname" name="f_name" ngModel>
+      <input type="text" class="form-control" id="fname" name="f_name" ngModel required>
+      <ng-container *ngIf="signUpForm?.controls['f_name']?.touched && signUpForm?.controls['f_name'].invalid">
+        <p class="error" *ngIf="signUpForm?.controls['f_name']?.errors?.required">First Name is required</p>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="lname">Last Name:</label>
-      <input type="text" class="form-control" id="lname" name="l_name" ngModel>
+      <input type="text" class="form-control" id="lname" name="l_name" ngModel required>
+      <ng-container *ngIf="signUpForm?.controls['l_name']?.touched && signUpForm?.controls['l_name'].invalid">
+        <p class="error" *ngIf="signUpForm?.controls['l_name']?.errors?.required">Last Name is required</p>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="role">Gender:</label>
@@ -17,15 +23,37 @@
     </div>
     <div class="form-group">
       <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email" name="email" ngModel>
+      <input type="email" class="form-control" id="email" name="email" ngModel required
+        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" (click)="print(signUpForm?.controls['email'])">
+      <ng-container *ngIf="signUpForm?.controls['email']?.touched && signUpForm?.controls['email'].invalid">
+        <p class="error" *ngIf="signUpForm?.controls['email']?.errors?.required">Email is required</p>
+        <p class="error" *ngIf="signUpForm?.controls['email']?.errors?.pattern">Please enter a valid email address</p>
+      </ng-container>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" name="password" ngModel>
+      <input type="password" class="form-control" id="pwd" name="password" ngModel required>
+      <ng-container *ngIf="signUpForm?.controls['password']?.touched && signUpForm?.controls['password'].invalid">
+        <p class="error" *ngIf="signUpForm?.controls['password']?.errors?.required">Password is required</p>
+      </ng-container>
     </div>
-    <button type="submit" class="form-control btn btn-default btn__blue">Sign Up</button>
     <div class="form-group">
-      <a class="pad-tb-10 inline-block" [routerLink]="['/auth/login']">Click here to login</a>
+      <label for="pwd">Retype Password:</label>
+      <input type="password" class="form-control" id="pwd" name="retype_password" ngModel required>
+      <ng-container *ngIf="signUpForm?.controls['retype_password']?.touched">
+        <p class="error" *ngIf="signUpForm?.controls['retype_password']?.errors?.required">Retype Password is required
+        </p>
+        <p class="error"
+          *ngIf="!signUpForm?.controls['retype_password']?.errors?.required && signUpForm?.value?.retype_password !== signUpForm?.value?.password">
+          Passwords does not match</p>
+      </ng-container>
+    </div>
+    <button [class.disabled]="signUpForm?.invalid"
+      [disabled]="signUpForm?.invalid || signUpForm?.value?.retype_password !== signUpForm?.value?.password"
+      type="submit" class="form-control btn btn-default btn__blue">Sign
+      Up</button>
+    <div class="form-group">
+      <a class="pad-tb-10 inline-block" [routerLink]="['/auth/login']">click here to login</a>
     </div>
   </form>
 </div>

@@ -35,7 +35,7 @@ $margin-left-right: ();
   }
 }
 
-$padding-top-bottom: ();
+$padding-top-bottom: (10);
 $padding-left-right: ();
 
 @each $padding in $padding-left-right {
@@ -50,6 +50,10 @@ $padding-left-right: ();
     padding-top: #{$padding} + "px";
     padding-bottom: #{$padding} + "px";
   }
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .btn__grey:disabled,
@@ -73,4 +77,14 @@ $padding-left-right: ();
     color: $white !important;
     opacity: 0.75;
   }
+}
+
+p.error {
+  color: red;
+  margin: 5px 0px;
+  font-size: 13px;
+}
+
+button.disabled {
+  opacity: 0.5;
 }

@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class SignUpComponent {
   constructor() {}
 
-  makeUserSignUp(signUpForm) {
-    console.log(signUpForm);
+  print(form) {
+    console.log(form);
   }
+
+  makeUserSignUp(signUpForm) {}
 }
