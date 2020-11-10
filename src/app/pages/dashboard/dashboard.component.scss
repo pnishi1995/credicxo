@@ -1,0 +1,17 @@
+.tabs__container {
+  padding: 30vh 0px;
+  span {
+    padding: 50px 100px;
+    display: inline-block;
+    border-radius: 25px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    &.leaderboard {
+      background: #bd5aa7;
+    }
+    &.quiz {
+      background: #5aaabd;
+    }
+  }
+}

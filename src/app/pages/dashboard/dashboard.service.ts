@@ -29,7 +29,7 @@ export class DashboardService {
       setTimeout(() => {
         this.shuffleQuestionSet(QuestionSet);
         resolve(QuestionSet);
-      }, 1000);
+      }, 100);
     });
   }
 

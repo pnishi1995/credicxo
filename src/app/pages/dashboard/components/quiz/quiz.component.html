@@ -1,0 +1,15 @@
+<ng-container *ngIf="_commonService?.dashboardStateFlag === 2">
+  <div class="col-sm-12" *ngIf="questionSet?.length > 0">
+    <app-question-card class="row" [question]="questionSet[currentQuestion]" [num]="currentQuestion">
+    </app-question-card>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 text-center mar-tb-30">
+    <button [disabled]="currentQuestion <= 0" (click)="loadNextQuestion(currentQuestion - 1)" class="btn__action"><i
+        class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <button class="btn__action" title="Reset Quiz"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    <button [disabled]="currentQuestion >= questionSet?.length" (click)="loadNextQuestion(currentQuestion + 1)"
+      class="btn__action"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+  <div class="col-sm-4"></div>
+</ng-container>

@@ -6,12 +6,18 @@
   </button>
 </nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
+<div class="container" *ngIf="!_commonService?.dashboardStateFlag">
+  <div class="row tabs__container">
+    <div class="col-sm-6 text-center">
+      <span class="leaderboard" (click)="_commonService.dashboardStateFlag=1">View Leaderboard</span>
+    </div>
+    <div class="col-sm-6 text-center">
+      <span class="quiz" (click)="_commonService.dashboardStateFlag=2">Start Quiz</span>
     </div>
   </div>
-  <ng-container *ngFor="let question of questionSet; let i = index;">
-    <app-question-card class="row" [question]="question" [num]="i"></app-question-card>
-  </ng-container>
+</div>
+
+<div class="container">
+  <app-leaderboard class="row" *ngIf="_commonService?.dashboardStateFlag === 1"></app-leaderboard>
+  <app-quiz class="row" *ngIf="_commonService?.dashboardStateFlag === 2"></app-quiz>
 </div>
