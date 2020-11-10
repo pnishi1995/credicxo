@@ -24,7 +24,7 @@
     <div class="form-group">
       <label for="email">Email address:</label>
       <input type="email" class="form-control" id="email" name="email" ngModel required
-        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" (click)="print(signUpForm?.controls['email'])">
+        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
       <ng-container *ngIf="signUpForm?.controls['email']?.touched && signUpForm?.controls['email'].invalid">
         <p class="error" *ngIf="signUpForm?.controls['email']?.errors?.required">Email is required</p>
         <p class="error" *ngIf="signUpForm?.controls['email']?.errors?.pattern">Please enter a valid email address</p>
@@ -48,12 +48,16 @@
           Passwords does not match</p>
       </ng-container>
     </div>
-    <button [class.disabled]="signUpForm?.invalid"
+    <button
+      [class.disabled]="signUpForm?.invalid  || signUpForm?.value?.retype_password !== signUpForm?.value?.password"
       [disabled]="signUpForm?.invalid || signUpForm?.value?.retype_password !== signUpForm?.value?.password"
       type="submit" class="form-control btn btn-default btn__blue">Sign
       Up</button>
     <div class="form-group">
-      <a class="pad-tb-10 inline-block" [routerLink]="['/auth/login']">click here to login</a>
+      <span class="pad-tb-10 inline-block">
+        Already have an account?
+        <a [routerLink]="['/auth/login']">click here to login</a>
+      </span>
     </div>
   </form>
 </div>
