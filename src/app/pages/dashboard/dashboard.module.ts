@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../../shared/shared.module';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [DashboardComponent, LeaderboardComponent, QuizComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+  ],
 })
 export class DashboardModule {}

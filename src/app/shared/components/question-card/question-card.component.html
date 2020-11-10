@@ -5,7 +5,8 @@
   <div class="card__answer">
     <ng-container *ngFor="let option of question?.options; let i = index;">
       <label for="question-{{num + '' + i}}">
-        <input id="question-{{num + '' + i}}" type="radio" name="question-{{num}}">
+        <input id="question-{{num + '' + i}}" type="radio" name="question-{{num}}" (change)="checkForValue(i)"
+          [checked]="i === this._commonService.submittedResponse[num]">
         <span class="radio"></span>
         <span class="text">{{ option }}</span>
       </label>
