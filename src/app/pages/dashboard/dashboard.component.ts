@@ -7,6 +7,7 @@ import { DashboardService } from './dashboard.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  questionSet: Array<any>;
   constructor(private _dashboardService: DashboardService) {}
 
   ngOnInit(): void {
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   getQuestionSetFromApi() {
     this._dashboardService.getQuestionSet().then((data) => {
-      console.log(data);
+      this.questionSet = data;
     });
   }
 }

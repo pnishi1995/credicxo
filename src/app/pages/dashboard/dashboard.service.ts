@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { QuestionSet } from './dashboard.config';
+import { QuestionSet } from './dashboard.data';
 
 @Injectable({
   providedIn: 'root',

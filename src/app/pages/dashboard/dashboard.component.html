@@ -1,9 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Credicxo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
     </div>
   </div>
-  <div class="row">
-
-  </div>
+  <ng-container *ngFor="let question of questionSet; let i = index;">
+    <app-question-card class="row" [question]="question" [num]="i"></app-question-card>
+  </ng-container>
 </div>

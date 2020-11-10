@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 $blue: #3e3c89;
 $white: #ffffff;
@@ -18,7 +19,7 @@ $font-size: ();
   }
 }
 
-$margin-top-bottom: ();
+$margin-top-bottom: (10);
 $margin-left-right: ();
 
 @each $margin in $margin-left-right {

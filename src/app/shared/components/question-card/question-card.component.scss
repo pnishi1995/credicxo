@@ -1,0 +1,36 @@
+.card {
+  &__wrapper {
+  }
+  &__question {
+    font-style: italic;
+  }
+  &__answer {
+    background: #e1e2fe;
+    padding: 20px;
+    border: 1px solid #dadada;
+    border-radius: 15px;
+    label {
+      display: block;
+      cursor: pointer;
+      font-size: 14px;
+      input {
+        display: none;
+      }
+      span.radio {
+        display: inline-block;
+        margin-right: 10px;
+        font-family: "FontAwesome";
+        font-size: 18px;
+      }
+      input + span.radio::before {
+        content: "\f096";
+      }
+      input:checked + span.radio::before {
+        content: "\f046";
+      }
+      input:checked + span + span.text {
+        color: #797979;
+      }
+    }
+  }
+}
