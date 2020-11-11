@@ -47,10 +47,12 @@ export class QuizComponent implements OnInit {
     });
 
     let leaderBoard = JSON.parse(localStorage.getItem('leaderBoard')) || [];
-    const userDetail = localStorage.getItem('user') || {};
+    const userDetail = JSON.parse(localStorage.getItem('userDetails')) || {};
     const userBoard = {
+      id: userDetail['id'],
       f_name: userDetail['f_name'],
       l_name: userDetail['l_name'],
+      email: userDetail['email'],
       age: userDetail['age'],
       city: userDetail['city'],
       marks: this.marksGot,

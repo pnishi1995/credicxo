@@ -6,6 +6,6 @@ export class CommonService {
   dashboardStateFlag: number;
   submittedResponse: Array<number>;
   constructor() {
-    this.dashboardStateFlag = 2;
+    this.dashboardStateFlag = 0;
   }
 }

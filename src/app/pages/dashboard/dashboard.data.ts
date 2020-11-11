@@ -19,24 +19,4 @@ export const QuestionSet = [
     ],
     answer: 0,
   },
-  {
-    question: '7Which type of JavaScript language is ___',
-    options: [
-      'Object-Oriented',
-      'Object-Based',
-      'Assembly-language',
-      'High-level',
-    ],
-    answer: 0,
-  },
-  {
-    question: '8Which type of JavaScript language is ___',
-    options: [
-      'Object-Oriented',
-      'Object-Based',
-      'Assembly-language',
-      'High-level',
-    ],
-    answer: 0,
-  },
 ];

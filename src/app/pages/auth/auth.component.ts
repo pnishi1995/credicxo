@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   constructor(private _router: Router) {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this._router.navigateByUrl('/dashboard/product-list');
+    const userDetails = localStorage.getItem('userDetails');
+    if (userDetails) {
+      this._router.navigateByUrl('/dashboard');
     } else {
-      this._router.navigateByUrl('/auth/sign-up');
+      this._router.navigateByUrl('/auth/login');
     }
   }
 }

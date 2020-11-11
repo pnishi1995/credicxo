@@ -1,28 +1,34 @@
 <ng-container *ngIf="_commonService?.dashboardStateFlag === 1">
-  <table>
-    <tr>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-    </tr>
-    <tr>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-    </tr>
-    <tr>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-    </tr>
-    <tr>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-      <td>sada</td>
-    </tr>
-  </table>
+  <div class="com-sm-12 mar-tb-15">
+    <button class="back__btn" (click)="_commonService.dashboardStateFlag=0">go back</button>
+  </div>
+  <div class="col-sm-12">
+    <table class="table mar-tb-15">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mark</th>
+          <th>Browser</th>
+          <th>Played on</th>
+          <th>Played at time</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="leaderBoardData?.length > 0">
+        <tr *ngFor="let leader of leaderBoardData">
+          <td>{{leader.f_name + ' ' + leader.l_name}}</td>
+          <td>{{leader.email}}</td>
+          <td>{{leader.marks}}</td>
+          <td>{{leader.browser}}</td>
+          <td>{{leader.os}}</td>
+          <td>{{leader.time}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="leaderBoardData?.length === 0">
+        <tr>
+          <td class="text-center" colspan="5">No data found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ng-container>

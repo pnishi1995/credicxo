@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor() {}
+  constructor(private _router: Router) {}
 
   makeUserLogin(loginForm) {
-    console.log(loginForm);
+    let userList = JSON.parse(localStorage.getItem('userList'));
+    let userDetails = userList.find((user) => user.email === loginForm.email);
+    if (userDetails) {
+      if (userDetails.password === loginForm.password) {
+        localStorage.setItem('userDetails', JSON.stringify(userDetails));
+        this._router.navigateByUrl('/dashboard');
+      } else {
+        alert('incorrect password please try again');
+      }
+    } else {
+      alert('this user does not exist');
+    }
   }
 }

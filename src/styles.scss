@@ -19,7 +19,7 @@ $font-size: ();
   }
 }
 
-$margin-top-bottom: (10, 30);
+$margin-top-bottom: (10, 15, 30);
 $margin-left-right: ();
 
 @each $margin in $margin-left-right {

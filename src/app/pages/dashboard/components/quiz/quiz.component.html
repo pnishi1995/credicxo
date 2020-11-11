@@ -1,4 +1,7 @@
 <ng-container *ngIf="_commonService?.dashboardStateFlag === 2">
+  <div class="col-sm-12 mar-tb-15">
+    <button class="back__btn" (click)="_commonService.dashboardStateFlag=0">quit and go back</button>
+  </div>
   <div class="col-sm-12" *ngIf="questionSet?.length > 0">
     <ng-container *ngIf="showQuestion">
       <app-question-card class="row" [question]="questionSet[currentQuestion]" [num]="currentQuestion">
@@ -13,7 +16,6 @@
   <div class="col-sm-4 text-center mar-tb-30">
     <button [disabled]="currentQuestion <= 0" (click)="loadNextQuestion(currentQuestion - 1)" class="btn__action"><i
         class="fa fa-arrow-left" aria-hidden="true"></i></button>
-    <button (click)="quitQuiz()" class="btn__action quit" title="Reset Quiz">quit</button>
     <button [disabled]="currentQuestion >= questionSet?.length - 1" (click)="loadNextQuestion(currentQuestion + 1)"
       class="btn__action"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
   </div>
