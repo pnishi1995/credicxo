@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
   constructor(private _router: Router) {}
 
+  /**
+   * this function is user to make new user to sign up
+   * @param signUpForm this is new user details filled by user
+   */
   submitUserSignUp(signUpForm) {
     let userList = JSON.parse(localStorage.getItem('userList')) || [];
     let user = userList.find((user) => user['email'] === signUpForm['email']);
@@ -19,6 +23,7 @@ export class SignUpComponent {
       localStorage.setItem('userDetails', JSON.stringify(signUpForm));
       this._router.navigateByUrl('/dashboard');
     } else {
+      // ideally will be using ng-toaster, used alert due to time contraint
       alert('Sorry mate this user already exists try with other email id');
     }
   }

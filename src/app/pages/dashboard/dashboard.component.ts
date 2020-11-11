@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   constructor(public _commonService: CommonService, private _router: Router) {
+    // ideally should be done through authguard
     if (!localStorage.getItem('userDetails')) {
       this._router.navigateByUrl('/auth/login');
     }

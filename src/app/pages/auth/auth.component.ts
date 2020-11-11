@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   constructor(private _router: Router) {
+    // Ideally this should be handled via auth guard
     const userDetails = localStorage.getItem('userDetails');
     if (userDetails) {
       this._router.navigateByUrl('/dashboard');

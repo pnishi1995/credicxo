@@ -17,6 +17,10 @@ export class QuizComponent implements OnInit {
     public _commonService: CommonService
   ) {}
 
+  /**
+   * this is user to load next or previous question
+   * @param index next question index to be loaded
+   */
   loadNextQuestion(index) {
     this.showQuestion = false;
     this.currentQuestion = index;
@@ -25,11 +29,9 @@ export class QuizComponent implements OnInit {
     }, 0);
   }
 
-  quitQuiz() {
-    this.resetAnswers();
-    this._commonService.dashboardStateFlag = 0;
-  }
-
+  /**
+   * this function is used to reset all the submitted anserwers to -1 i.e not selected mode
+   */
   resetAnswers() {
     this.marksGot = -1;
     this._commonService.submittedResponse = new Array(
@@ -38,6 +40,9 @@ export class QuizComponent implements OnInit {
   }
 
   marksGot: number = -1;
+  /**
+   * calculate the final result of the user and save it to leaderboard as well as dashboard
+   */
   evaluateResult() {
     this.marksGot = 0;
     this.questionSet.forEach((question, index) => {
@@ -72,6 +77,9 @@ export class QuizComponent implements OnInit {
     this.getQuestionSetFromApi();
   }
 
+  /**
+   * get question set from fake API promise
+   */
   getQuestionSetFromApi() {
     this._commonService.submittedResponse = [];
     this._dashboardService.getQuestionSet().then((data) => {
