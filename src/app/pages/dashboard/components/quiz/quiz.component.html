@@ -1,6 +1,11 @@
 <ng-container *ngIf="_commonService?.dashboardStateFlag === 2">
-  <div class="col-sm-12 mar-tb-15">
+  <div class="col-sm-6 mar-tb-15">
     <button class="back__btn" (click)="_commonService.dashboardStateFlag=0">quit and go back</button>
+  </div>
+  <div class="col-sm-6 mar-tb-15 text-right" *ngIf="leader">
+    <span class="leader">{{leader?.f_name + ' ' + leader?.l_name}} is top scorer and is currently leading with
+      {{leader?.marks}}
+      points.</span>
   </div>
   <div class="col-sm-12" *ngIf="questionSet?.length > 0">
     <ng-container *ngIf="showQuestion">

@@ -12,10 +12,14 @@ export class QuizComponent implements OnInit {
   questionSet: Array<any>;
   currentQuestion: number = 0;
   showQuestion: boolean = true;
+  leader: any;
   constructor(
     private _dashboardService: DashboardService,
     public _commonService: CommonService
-  ) {}
+  ) {
+    const leaderBoard = JSON.parse(localStorage.getItem('leaderBoard')) || [];
+    leaderBoard.length > 0 ? (this.leader = leaderBoard[0]) : {};
+  }
 
   /**
    * this is user to load next or previous question
@@ -65,7 +69,18 @@ export class QuizComponent implements OnInit {
       browser: 'Chrome',
       os: 'Linux',
     };
-    leaderBoard.push(userBoard);
+
+    let index = leaderBoard.findIndex(
+      (user) => user['email'] === userDetail['email']
+    );
+
+    if (index > -1) {
+      leaderBoard[index] = userBoard;
+    } else {
+      leaderBoard.push(userBoard);
+    }
+    leaderBoard = leaderBoard.sort((a, b) => b.marks - a.marks).slice(0, 9);
+
     localStorage.setItem('leaderBoard', JSON.stringify(leaderBoard));
 
     setTimeout(() => {
